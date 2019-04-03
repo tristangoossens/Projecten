@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="database">
+  <DataContextMoniker Name="/databaseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="18f43487-01c6-4736-b4bb-b4764e4e3576" absoluteBounds="3.875, 3.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/databaseDataContext/beertype" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a45e59d3-3a6f-43f7-b9ac-17154ae621bd" absoluteBounds="3.8900000000000006, 4.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57b62043-70e4-4e1d-9288-1f98fbaf474c" absoluteBounds="3.875, 1.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/databaseDataContext/beer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72e7f6dc-8389-4ee2-8b9c-ad3b61db9031" absoluteBounds="3.8899999999999997, 1.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 3.875); (4.875 : 3.02089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/beertype/beertype_beer" />
+      <nodes>
+        <classShapeMoniker Id="18f43487-01c6-4736-b4bb-b4764e4e3576" />
+        <classShapeMoniker Id="57b62043-70e4-4e1d-9288-1f98fbaf474c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9e1870bf-8ab0-4d6a-ba27-8c2d2896117d" absoluteBounds="0.75, 1.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/databaseDataContext/purchase" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4660bc6-157a-4cfa-b438-0ed57d66a462" absoluteBounds="0.76500000000000012, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.875 : 2.16429768880208); (2.75 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/beer/beer_purchase" />
+      <nodes>
+        <classShapeMoniker Id="57b62043-70e4-4e1d-9288-1f98fbaf474c" />
+        <classShapeMoniker Id="9e1870bf-8ab0-4d6a-ba27-8c2d2896117d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

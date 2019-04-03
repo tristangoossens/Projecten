@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="defouteschoen" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-U0BN5LM\SQLEXPRESS01;Initial Catalog=defouteschoen;Integrated Security=True" SettingsObjectName="DeFouteSchoen.Properties.Settings" SettingsPropertyName="defouteschoenConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.beertype" Member="beertypes">
+    <Type Name="beertype">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="beertype_beer" Member="beers" ThisKey="id" OtherKey="beertypeid" Type="beer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.beer" Member="beers">
+    <Type Name="beer">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="purchasecount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="beertypeid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="beer_purchase" Member="purchases" ThisKey="id" OtherKey="beerid" Type="purchase" />
+      <Association Name="beertype_beer" Member="beertype" ThisKey="beertypeid" OtherKey="id" Type="beertype" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.purchase" Member="purchases">
+    <Type Name="purchase">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="beerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="beer_purchase" Member="beer" ThisKey="beerid" OtherKey="id" Type="beer" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

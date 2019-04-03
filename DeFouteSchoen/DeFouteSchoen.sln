@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeFouteSchoen", "DeFouteSchoen\DeFouteSchoen.csproj", "{CEE0DDD6-69FA-4859-BBF2-F072B484B088}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEE0DDD6-69FA-4859-BBF2-F072B484B088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE0DDD6-69FA-4859-BBF2-F072B484B088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE0DDD6-69FA-4859-BBF2-F072B484B088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE0DDD6-69FA-4859-BBF2-F072B484B088}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A149E6A6-4223-4B25-A103-890BA3F51EBB}
+	EndGlobalSection
+EndGlobal
