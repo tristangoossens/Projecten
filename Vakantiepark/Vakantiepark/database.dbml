@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="vakantiepark" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-U0BN5LM\SQLEXPRESS01;Initial Catalog=vakantiepark;Integrated Security=True" SettingsObjectName="Vakantiepark.Properties.Settings" SettingsPropertyName="vakantieparkConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.customers" Member="customers">
+    <Type Name="customer">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phonenumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="customer_reservation" Member="reservations" ThisKey="id" OtherKey="customerid" Type="reservation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.houses" Member="houses">
+    <Type Name="house">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="housetypeid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="housesizeid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="house_reservation" Member="reservations" ThisKey="id" OtherKey="houseid" Type="reservation" />
+      <Association Name="housesize_house" Member="housesize" ThisKey="housesizeid" OtherKey="id" Type="housesize" IsForeignKey="true" />
+      <Association Name="housetype_house" Member="housetype" ThisKey="housetypeid" OtherKey="id" Type="housetype" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.housesizes" Member="housesizes">
+    <Type Name="housesize">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="size" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="housesize_house" Member="houses" ThisKey="id" OtherKey="housesizeid" Type="house" />
+    </Type>
+  </Table>
+  <Table Name="dbo.housetypes" Member="housetypes">
+    <Type Name="housetype">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="housetype_house" Member="houses" ThisKey="id" OtherKey="housetypeid" Type="house" />
+    </Type>
+  </Table>
+  <Table Name="dbo.reservations" Member="reservations">
+    <Type Name="reservation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="startdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="enddate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="persons" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="houseid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="customer_reservation" Member="customer" ThisKey="customerid" OtherKey="id" Type="customer" IsForeignKey="true" />
+      <Association Name="house_reservation" Member="house" ThisKey="houseid" OtherKey="id" Type="house" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Vakantiepark.KlantenWijzigen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vakantiepark"
+        mc:Ignorable="d"
+        Title="KlantenWijzigen" Height="333.272" Width="384.376" Closed="Window_Closed">
+    <Grid>
+        <Label Content="Klanten wijzigen/Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Height="43" Width="362" Margin="10,10,0,0"/>
+        <Button x:Name="btnWijzig" Content="Wijzig" HorizontalAlignment="Left" Margin="293,138,0,0" VerticalAlignment="Top" Width="75" Click="btnWijzig_Click" Height="25"/>
+        <Label Content="Achternaam:" HorizontalAlignment="Left" Margin="29,138,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Voornaam:" HorizontalAlignment="Left" Margin="29,107,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtVoornaam" HorizontalAlignment="Left" Height="23" Margin="157,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtAchternaam" HorizontalAlignment="Left" Height="23" Margin="157,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Geboortedatum:" HorizontalAlignment="Left" Margin="29,168,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DatePicker x:Name="dpGeboortedatum" HorizontalAlignment="Left" Margin="157,170,0,0" VerticalAlignment="Top" Height="24" Width="120"/>
+        <Label Content="Telefoon:" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtTelefoon" HorizontalAlignment="Left" Height="23" Margin="157,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="E-Mail:" HorizontalAlignment="Left" Margin="31,230,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="157,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Woonplaats:" HorizontalAlignment="Left" Margin="31,258,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtWoonplaats" HorizontalAlignment="Left" Height="23" Margin="157,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnVerwijder" Content="Verwijder" HorizontalAlignment="Left" Margin="293,89,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnVerwijder_Click"/>
+        <Label x:Name="lbID" Content="" HorizontalAlignment="Left" Margin="157,76,0,0" VerticalAlignment="Top"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="29,81,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

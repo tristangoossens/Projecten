@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.125, 8.5" name="database">
+  <DataContextMoniker Name="/databaseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="4da37cfc-ff0b-4acf-a091-275b4dcf642d" absoluteBounds="2.25, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/databaseDataContext/customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d600816c-a347-49eb-bfca-c81952a8b8eb" absoluteBounds="2.265, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6747e533-6d63-4973-a0d3-c10e7d817e8d" absoluteBounds="6.125, 4.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/databaseDataContext/house" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec86ea67-ff64-4498-a1f7-0f441b9792cf" absoluteBounds="6.14, 5.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d8d32910-9dec-4359-a777-c3b0c2fcb449" absoluteBounds="6.25, 1.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/databaseDataContext/housesize" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cfa5d76d-fc76-4f84-b07a-8bc8ebf76be6" absoluteBounds="6.2650000000000006, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.1875 : 2.81899251302083); (7.1875 : 4.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/housesize/housesize_house" />
+      <nodes>
+        <classShapeMoniker Id="d8d32910-9dec-4359-a777-c3b0c2fcb449" />
+        <classShapeMoniker Id="6747e533-6d63-4973-a0d3-c10e7d817e8d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="15becd56-7a23-44c1-a673-a30116c26d6e" absoluteBounds="9.875, 5.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/databaseDataContext/housetype" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e8a5a02-9649-43c7-92dd-1add9e6517bb" absoluteBounds="9.89, 5.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.875 : 5.72199625651042); (8.125 : 5.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/housetype/housetype_house" />
+      <nodes>
+        <classShapeMoniker Id="15becd56-7a23-44c1-a673-a30116c26d6e" />
+        <classShapeMoniker Id="6747e533-6d63-4973-a0d3-c10e7d817e8d" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="badc02e4-8209-49d5-b28f-5bf7fceef8fd" absoluteBounds="2.375, 4.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/databaseDataContext/reservation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f4ed60e6-d329-4b89-b8f3-25b9cd818490" absoluteBounds="2.39, 5.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.3125 : 3.28049967447917); (3.3125 : 4.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/customer/customer_reservation" />
+      <nodes>
+        <classShapeMoniker Id="4da37cfc-ff0b-4acf-a091-275b4dcf642d" />
+        <classShapeMoniker Id="badc02e4-8209-49d5-b28f-5bf7fceef8fd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 5.76044840494792); (4.375 : 5.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/house/house_reservation" />
+      <nodes>
+        <classShapeMoniker Id="6747e533-6d63-4973-a0d3-c10e7d817e8d" />
+        <classShapeMoniker Id="badc02e4-8209-49d5-b28f-5bf7fceef8fd" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
