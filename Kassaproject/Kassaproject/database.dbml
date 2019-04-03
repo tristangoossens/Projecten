@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbBTR" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-U0BN5LM\SQLEXPRESS01;Initial Catalog=dbBTR;Integrated Security=True" SettingsObjectName="Kassaproject.Properties.Settings" SettingsPropertyName="dbBTRConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.customers" Member="customers">
+    <Type Name="customer">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phonenumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="customer_order" Member="orders" ThisKey="id" OtherKey="customerid" Type="order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.orders" Member="orders">
+    <Type Name="order">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="customerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="order_itemsinorder" Member="itemsinorders" ThisKey="id" OtherKey="orderid" Type="itemsinorder" />
+      <Association Name="customer_order" Member="customer" ThisKey="customerid" OtherKey="id" Type="customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.itemsinorder" Member="itemsinorders">
+    <Type Name="itemsinorder">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="amount" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="orderid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="productid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="order_itemsinorder" Member="order" ThisKey="orderid" OtherKey="id" Type="order" IsForeignKey="true" />
+      <Association Name="product_itemsinorder" Member="product" ThisKey="productid" OtherKey="id" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.products" Member="products">
+    <Type Name="product">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="producttypeid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="product_itemsinorder" Member="itemsinorders" ThisKey="id" OtherKey="productid" Type="itemsinorder" />
+      <Association Name="product_pricehistory" Member="pricehistories" ThisKey="id" OtherKey="productid" Type="pricehistory" />
+      <Association Name="producttype_product" Member="producttype" ThisKey="producttypeid" OtherKey="id" Type="producttype" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pricehistories" Member="pricehistories">
+    <Type Name="pricehistory">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="startdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="enddate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="productid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="product_pricehistory" Member="product" ThisKey="productid" OtherKey="id" Type="product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.producttypes" Member="producttypes">
+    <Type Name="producttype">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="producttype_product" Member="products" ThisKey="id" OtherKey="producttypeid" Type="product" />
+    </Type>
+  </Table>
+</Database>
